@@ -1,0 +1,39 @@
+html5 contains so many new semantic tags such as the following:
+<header>
+<nav>
+<article>
+<section>
+<aside>
+<footer>
+<main>
+<figure>
+
+There are more, but these are the most common. The use of <div> is therefore
+becoming obsolete and has no specific usage. The main area you'll find
+<div> would be in tabs and accordions, or to float two parts to right and left.
+There are however most of the time better tags than <div>.
+
+If the <aside> is  placed inside a section it means that it's related to that
+section and should contain supporting information to that section. Some short
+facts around an article etc.
+
+<article> specifies independent and self contained content and should make
+sense if it's taken out of it's surrounding content. Imagine being able to send
+a whole article through an RSS feed and still making sense.
+Examples: Forum posts, blog posts, news story and comments
+
+<section> defines the documents sections such as chapters, headers, footers etc.
+
+<aside> depends on where it's placed in the structure. If it's not related to
+any parent sections then it defines content <aside> from the main content.
+An example is ads or other short info content related to the website.
+
+
+<dl> means Definition List and consists of two elements:
+  <dt> Definition Terms
+    The title of the list item and the name of the list
+
+  <dd> Definition
+    This tag is the information in the list, just as we use <li> in <ul>
+
+  This is the better way to relate elements together in lists.
