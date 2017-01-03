@@ -1,0 +1,48 @@
+<section class="artistpage">
+  <div class="search">
+      <h1>Artist Directory</h1>
+      <label>search: </label>
+      <!-- Define a model named query to filter text from the search bar to the <li> view -->
+      <input ng-model="query" placeholder="Search for artists" autofocus>
+
+      <label class="formgroup">by:
+        <!-- Model artistOrder to order them by name or reknown, also in the <li> view -->
+        <select ng-model="artistOrder">
+          <option value="name">Name</option>
+          <option value="reknown">Reknown</option>
+        </select>
+      </label>
+
+      <label class="formgroup">
+        <input type="radio" ng-model="direction" name="direction" checked>ascending
+      </label>
+      <label class="formgroup">
+        <input type="radio" ng-model="direction" name="direction" value="reverse">descending
+      </label>
+    </div>
+
+    <ul class="artistlist">
+      <!-- This is the list displaying all data from the json. Add filters and
+      order easy with AngularJS and seperate them with "|". The names are defined
+      in when creating models earlier in the html
+
+      ng-repeat is angulars way of looping through an array
+      We have to use ng-src instead of src while using angular markup in
+      a source link because the browser will look use the literal text until
+      angular steps in and reads the variable name -->
+      <li class="artist cf" ng-repeat="item in artist | filter:query | orderBy:artistOrder:direction">
+        <!-- Reference to individual artists and look for the index of the
+        artist that is currently clicked. -->
+        <a href="#/details/{{artist.indexOf(item)}}">
+
+        <img ng-src="images/{{item.shortname}}_tn.jpg" alt="Photo of {{item.name}}">
+        <div class="info">
+          <h2>{{ item.name }}</h2>
+          <h3>{{ item.reknown }}</h3>
+        </div>
+        </a>
+      </li>
+    </ul>
+    <!-- target $scope.author and retrieve name, title etc. with angular expressions -->
+  </div>
+</section>
